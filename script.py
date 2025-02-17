@@ -4,9 +4,6 @@ from colorama import Fore, Style, init
 # Initialize colorama
 init(autoreset=True)
 
-# Password protection
-password = "Yassour0X"
-
 # Ask for API credentials
 api_id = input(Fore.BLUE + "Enter your API ID: ")
 api_hash = input(Fore.BLUE + "Enter your API Hash: ")
@@ -26,12 +23,6 @@ print(Fore.MAGENTA + "✅ The bot is now running...")
 
 # Ask for channel usernames
 channel_usernames = input(Fore.BLUE + "Enter the channel usernames (separate them with spaces): ").split()
-
-# Password verification
-input_password = input(Fore.RED + "Enter the password to start the script: ")
-if input_password != password:
-    print(Fore.RED + "Incorrect password!")
-    exit()
 
 @client.on(events.NewMessage(chats=channel_usernames))
 async def forward_to_bot(event):
